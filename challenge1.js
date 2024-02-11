@@ -1,34 +1,43 @@
-FREE_WARNING = 'Free shipping only applies to single customer orders'
-BANNED_WARNING = 'Unfortunately we do not ship to your country of residence'
-NONE_SELECTED = 0
+const FREE_WARNING = 'Free shipping only applies to single customer orders'
+const BANNED_WARNING = 'Unfortunately we do not ship to your country of residence'
+const NONE_SELECTED = 0
+let location1 = 'RSA'
+let customers = 1
+let currency = null
+let shipping = null
+const shoes = 300 * 1
+const toys = 100 * 5
+const shirts = 150 * NONE_SELECTED
+const batteries = 35 * 2
+const pens = 5 * NONE_SELECTED
 
-if (location = RSA) { shipping === 400 && currency === 'R' }
+console.log(typeof 1, typeof '1', typeof 1 == typeof '1', typeof 1 === typeof '1' )
 
-if (location = NAM) { shipping === 600 && currency === $ } 
-else { shipping = 800 && currency === $ }
 
-shoes = 300 * 1
-toys = 100 * 5
-shirts = 150 * 'NONE_SELECTED'
-batteries = 35 * 2
-pens = 5 * 'NONE_SELECTED' 
-
-shipping = null
-currency = $
-
-if (shoes + batteries + pens + shirts + toys > 1000 && currency === 'R' && customers === 1 ) {
-    shipping = 0}
-
-	if (location = NAM && customers < 2) {
-			if (location = RSA)
-		    shipping = 0 || calcShipping
-		}
+function calcShipping(){
+	if (location1 === 'RSA') { 
+		shipping = 400 
+		currency = 'R' 
+	} else if (location1 === 'NAM') { 
+		shipping = 600 
+		currency = '$' 
+	} else { 
+		shipping = 800 
+		currency = '$' 
 	}
+}
 
-if (shipping = 0 && customers !== 1) { console.log(FREE_WARNING) }
+if (location1 === 'RSA' && shoes + batteries + pens + shirts + toys > 1000 && currency === 'R' && customers === 1 ) {
+    shipping = 0
+} else if (location1 === 'NAM' && shoes + batteries + pens + shirts + toys > 60 && currency === '$' && customers === 1 ) {
+	shipping = 0
+} else {
+	calcShipping()
+}
 
-location = 'NK' ? console.log(BANNED_WARNING) : console.log('price', currency, shoes + batteries + pens + shirts + shipping)
+if (shipping === 0 && customers !== 1) { 
+	console.log(FREE_WARNING) 
+}
 
-customers = '1'
-const location = 'RSA'
-currency = null
+location === 'NK' ? console.log(BANNED_WARNING) : console.log('price', currency, shoes + batteries + pens + shirts + toys + shipping)
+
